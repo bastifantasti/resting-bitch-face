@@ -10,57 +10,183 @@
 
 <div class="jumbotron text-center">
   <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
-    </a>
-    <h1>Getting Started with Node on Heroku v1.0 dev branch</h1>
-    <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started with Node</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+    <h2>RESTED BITCH FACE</h2>
   </div>
 </div>
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs" class="alert-link">Getting Started with Node on Heroku</a> tutorial.
+    Für Kathi :)
   </div>
   <hr>
   <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/node-js-getting-started">Heroku Button</a> on the repository.</li>
-
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/node-js-getting-started/blob/master/package.json">package.json</a>, creating a deployable slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
+    <div class="col-xs-3" id="txt_top1">
+      Anger
     </div>
+    <div class="col-xs-3" id="txt_top2">
+      Fear
+    </div>
+    <div class="col-xs-3" id="txt_top3">
+      Neutral
+    </div>
+    <div class="col-xs-3" id="txt_top4">
+      Sadness
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3" id="val_top1">
+
+    </div>
+    <div class="col-xs-3" id="val_top2">
+
+    </div>
+    <div class="col-xs-3" id="val_top3">
+
+    </div>
+    <div class="col-xs-3" id="val_top4">
+
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-        <ul>
-          <li><code>git clone https://github.com/heroku/node-js-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd node-js-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
-      </ul>
+      <video autoplay="true" id="videoElement">
+
+      </video><br><p>
+      <button class="btn button btn-large btn-primary" onclick="myclick()">check RBF</button></p>
+      <script>
+          var video = document.querySelector("#videoElement");
+
+          navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+          if (navigator.getUserMedia) {
+              navigator.getUserMedia({video: true}, handleVideo, videoError);
+          }
+
+          function handleVideo(stream) {
+              video.src = window.URL.createObjectURL(stream);
+          }
+
+          function videoError(e) {
+              // do something
+          }
+
+          var canvas = document.createElement('canvas');
+          canvas.width = 640;
+          canvas.height = 480;
+          var ctx = canvas.getContext('2d');
+          //draw image to canvas. scale to target dimensions
+
+          function makeblob(dataURL) {
+              var BASE64_MARKER = ';base64,';
+              if (dataURL.indexOf(BASE64_MARKER) == -1) {
+                  var parts = dataURL.split(',');
+                  var contentType = parts[0].split(':')[1];
+                  var raw = decodeURIComponent(parts[1]);
+                  return new Blob([raw], { type: contentType });
+              }
+              var parts = dataURL.split(BASE64_MARKER);
+              var contentType = parts[0].split(':')[1];
+              var raw = window.atob(parts[1]);
+              var rawLength = raw.length;
+
+              var uInt8Array = new Uint8Array(rawLength);
+
+              for (var i = 0; i < rawLength; ++i) {
+                  uInt8Array[i] = raw.charCodeAt(i);
+              }
+
+              return new Blob([uInt8Array], { type: contentType });
+          }
+
+
+          function compareSecondColumn(a, b) {
+              if (a[1] === b[1]) {
+                  return 0;
+              }
+              else {
+                  return (a[1] < b[1]) ? -1 : 1;
+              }
+          }
+
+          function myclick() {
+              console.log("check");
+
+              ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+              //convert to desired file format
+              var dataURI = canvas.toDataURL('image/jpeg');
+              var img = makeblob(dataURI);
+              console.log(img);
+              console.log('bäm');
+              var params = {
+                  // Request parameters
+              };
+//data:image/jpeg;base64,
+
+
+              $.ajax({
+                  // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+                  //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
+                  //   URL below with "westcentralus".
+                  url: "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?" + $.param(params),
+                  beforeSend: function(xhrObj){
+                      // Request headers
+                      xhrObj.setRequestHeader("Content-Type","application/octet-stream");
+
+                      // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+                      xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","69f18f512ee542a099897c13dc255245");
+                  },
+                  type: "POST",
+                  cache: false,
+                  processData:false,
+                  // Request body
+                  // data: '{"url": "https://lh3.googleusercontent.com/-TrvVsPUYHJ4/AAAAAAAAAAI/AAAAAAAAA_s/retRu4VhsIg/s640/photo.jpg"}',
+                  data: img,
+              })
+                  .done(function(data) {
+                      console.log(data[0].scores);
+                      var score = data[0].scores;
+
+                      var anger = (score.anger*100).toFixed(2);
+                      var fear = (score.fear*100).toFixed(2);
+                      var neutral = (score.neutral*100).toFixed(2);
+                      var sadness = (score.sadness*100).toFixed(2);
+                      var contempt = (score.contempt*100).toFixed(2);
+                      var disgust = (score.disgust*100).toFixed(2);
+                      var happiness = (score.happiness*100).toFixed(2);
+                      var surprise = (score.surprise*100).toFixed(2);
+
+                      var a = [['anger', anger], ['fear', fear], ['neutral', neutral],['sadness', sadness],
+                          ['contempt', contempt],['disgust', disgust],['happiness', happiness],['surprise', surprise]];
+
+                      a.sort(compareSecondColumn);
+
+
+                      console.log(a);
+
+
+
+                      $('#txt_top1').text(a[7][0]);
+                      $('#txt_top2').text(a[6][0]);
+                      $('#txt_top3').text(a[5][0]);
+                      $('#txt_top4').text(a[4][0]);
+
+                      $('#val_top1').text(a[7][1]);
+                      $('#val_top2').text(a[6][1]);
+                      $('#val_top3').text(a[5][1]);
+                      $('#val_top4').text(a[4][1]);
+
+                  })
+                  .fail(function() {
+                      //alert("error");
+                  });
+          }
+      </script>
+
+
     </div>
   </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
-</div>
-
+ </div>
 
 </body>
 </html>
