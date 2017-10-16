@@ -164,7 +164,7 @@
                       var disgust = parseFloat((score.disgust*100).toFixed(2));
                       var happiness = parseFloat((score.happiness*100).toFixed(2));
                       var surprise = parseFloat((score.surprise*100).toFixed(2));
-                      if(anger > 50 || disgust > 30 || contempt > 30){
+                      if(anger > 50 || disgust > 20 || contempt > 20 || sadness > 30){
                           $('#output_success').removeClass('hidden');
                       }else{
                           $('#output_error').removeClass('hidden');
