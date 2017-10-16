@@ -17,6 +17,13 @@
   <div class="alert alert-info text-center" role="alert">
     Für Kathi :)
   </div>
+  <div id="output_error" class="hidden alert alert-danger text-center" role="alert">
+    Nope. Sorry. Reicht einfach nicht.
+  </div>
+
+  <div id="output_success" class="hidden alert alert-success text-center" role="alert">
+    Yeah! Du bimst ein Kathi vong Faceigkeit her.
+  </div>
   <hr>
   <div class="row">
     <div class="col-xs-3" id="txt_top1">
@@ -110,6 +117,8 @@
 
           function myclick() {
               console.log("check");
+              $('#output_error').addClass('hidden');
+              $('#output_success').addClass('hidden');
 
               ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
@@ -147,14 +156,19 @@
                       console.log(data[0].scores);
                       var score = data[0].scores;
 
-                      var anger = (score.anger*100).toFixed(2);
-                      var fear = (score.fear*100).toFixed(2);
-                      var neutral = (score.neutral*100).toFixed(2);
-                      var sadness = (score.sadness*100).toFixed(2);
-                      var contempt = (score.contempt*100).toFixed(2);
-                      var disgust = (score.disgust*100).toFixed(2);
-                      var happiness = (score.happiness*100).toFixed(2);
-                      var surprise = (score.surprise*100).toFixed(2);
+                      var anger = parseFloat((score.anger*100).toFixed(2));
+                      var fear = parseFloat((score.fear*100).toFixed(2));
+                      var neutral = parseFloat((score.neutral*100).toFixed(2));
+                      var sadness = parseFloat((score.sadness*100).toFixed(2));
+                      var contempt = parseFloat((score.contempt*100).toFixed(2));
+                      var disgust = parseFloat((score.disgust*100).toFixed(2));
+                      var happiness = parseFloat((score.happiness*100).toFixed(2));
+                      var surprise = parseFloat((score.surprise*100).toFixed(2));
+                      if(anger > 50 || disgust > 30 || contempt > 30){
+                          $('#output_success').removeClass('hidden');
+                      }else{
+                          $('#output_error').removeClass('hidden');
+                      }
 
                       var a = [['anger', anger], ['fear', fear], ['neutral', neutral],['sadness', sadness],
                           ['contempt', contempt],['disgust', disgust],['happiness', happiness],['surprise', surprise]];
